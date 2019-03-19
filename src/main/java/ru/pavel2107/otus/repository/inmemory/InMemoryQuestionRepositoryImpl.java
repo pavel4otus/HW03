@@ -17,7 +17,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 
-@Repository
 public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
 
     private Map<String, Question> map = new ConcurrentHashMap<>();
@@ -57,11 +56,10 @@ public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
 
 
     public void init(){
+
         ClassLoader classLoader = Main.class.getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
-
         BufferedReader reader;
-
 
         try {
             reader = new BufferedReader(new FileReader(file));

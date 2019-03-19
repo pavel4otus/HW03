@@ -9,6 +9,7 @@ import ru.pavel2107.otus.config.RepositoryConfig;
 import ru.pavel2107.otus.config.TestServiceConfig;
 import ru.pavel2107.otus.domain.Question;
 import ru.pavel2107.otus.service.TestService;
+import ru.pavel2107.otus.service.TestServiceImpl;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,20 +30,13 @@ public class Main {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Bean
-    public MessageSource messageSource(){
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename( "/i18n/bundle");
-        messageSource.setDefaultEncoding( "UTF-8");
-        return messageSource;
-    }
 
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext( Main.class);
 
 
-        TestService testService = context.getBean( TestService.class);
+        TestService testService = context.getBean( TestServiceImpl.class);
 
         testService.init();
         testService.inviteStudent();

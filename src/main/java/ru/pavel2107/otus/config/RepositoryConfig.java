@@ -10,8 +10,7 @@ import ru.pavel2107.otus.repository.inmemory.InMemoryQuestionRepositoryImpl;
 public class RepositoryConfig {
 
     @Bean
-    public QuestionRepository questionRepository(
-            @Value( "${filename}") String fileName ){
+    public QuestionRepository questionRepository(@Value( "${filename}") String fileName ){
         InMemoryQuestionRepositoryImpl questionRepository = new InMemoryQuestionRepositoryImpl();
         questionRepository.setFileName( fileName);
 
