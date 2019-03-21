@@ -34,15 +34,10 @@ public class TestServiceImpl implements TestService {
 
     public boolean init(){
         questionRepository.init();
-
         return true;
     }
 
-
-
-
     public boolean inviteStudent(){
-
         Student student = inviteStudent.invite();
         testStore = new TestStore( student);
         return true;
@@ -79,7 +74,6 @@ public class TestServiceImpl implements TestService {
             }
         }
         transmitterService.printlnResource( "results.correct_answers", Integer.toString( correctAnswers));
-
     }
 
 }

@@ -75,7 +75,6 @@ public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 

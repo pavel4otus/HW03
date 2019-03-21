@@ -17,20 +17,11 @@ public class Hw03Application {
 
     public static void main(String[] args) {
        ApplicationContext context=  SpringApplication.run( Hw03Application.class, args);
-
-        TestService testService = context.getBean( TestServiceImpl.class);
-
-        testService.init();
-        testService.inviteStudent();
-        testService.processTest();
-        testService.showResult();
-
+       TestService testService = context.getBean( TestServiceImpl.class);
+       testService.init();
+       testService.inviteStudent();
+       testService.processTest();
+       testService.showResult();
     }
-
-
-//    @Bean
-//    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer(){
-//        return new PropertySourcesPlaceholderConfigurer();
-//    }
 
 }
