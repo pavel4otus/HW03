@@ -26,10 +26,6 @@ public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
         fileName = properties.getFilename();
     }
 
-    @Override
-    public Question get( String id) {
-        return map.get( id);
-    }
 
     @Override
     public Question save(Question question) {
@@ -37,15 +33,9 @@ public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
     }
 
     @Override
-    public Question delete(Question question) {
-        return map.remove( question.getId());
-    }
-
-    @Override
     public Collection<Question> getAll() {
         return map.values();
     }
-
 
     public void init(){
 
