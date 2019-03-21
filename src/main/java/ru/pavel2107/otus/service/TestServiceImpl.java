@@ -9,6 +9,7 @@ import ru.pavel2107.otus.repository.QuestionRepository;
 
 import java.util.*;
 
+@Service
 public class TestServiceImpl implements TestService {
 
     private TestStore testStore;

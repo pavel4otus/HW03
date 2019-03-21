@@ -1,7 +1,7 @@
 package ru.pavel2107.otus.repository.inmemory;
 
 import org.springframework.stereotype.Repository;
-import ru.pavel2107.otus.Main;
+import ru.pavel2107.otus.config.ApplicationProperties;
 import ru.pavel2107.otus.domain.Question;
 import ru.pavel2107.otus.repository.QuestionRepository;
 
@@ -16,23 +16,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
+@Repository
 public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
 
     private Map<String, Question> map = new ConcurrentHashMap<>();
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
     private String fileName;
 
-
-
+    InMemoryQuestionRepositoryImpl( ApplicationProperties properties){
+        fileName = properties.getFilename();
+    }
 
     @Override
     public Question get( String id) {
@@ -57,7 +49,7 @@ public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
 
     public void init(){
 
-        ClassLoader classLoader = Main.class.getClassLoader();
+        ClassLoader classLoader = InMemoryQuestionRepositoryImpl.class.getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
         BufferedReader reader;
 
