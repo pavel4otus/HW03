@@ -6,7 +6,9 @@ import java.util.Collection;
 import java.util.List;
 
 public interface QuestionRepository {
+    void clear();
     void init();
     Question save( Question question);
+
     Collection<Question> getAll();
 }

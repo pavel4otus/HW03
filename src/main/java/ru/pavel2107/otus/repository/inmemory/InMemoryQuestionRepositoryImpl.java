@@ -28,6 +28,11 @@ public class InMemoryQuestionRepositoryImpl implements QuestionRepository {
 
 
     @Override
+    public void clear(){
+        map.clear();
+    }
+
+    @Override
     public Question save(Question question) {
         return map.put( question.getId(), question);
     }
